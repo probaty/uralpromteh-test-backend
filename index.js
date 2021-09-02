@@ -1,4 +1,6 @@
-const app = require("express")();
+const express = require("express");
+const cors = require("cors");
+const app = express();
 
 const rp = require("request-promise");
 const requestOptions = {
@@ -16,6 +18,8 @@ const requestOptions = {
   json: true,
   gzip: true,
 };
+
+app.use(cors());
 
 app.get("/coins", async (req, res) => {
   const data = await fetchCoins();
