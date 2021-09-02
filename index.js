@@ -1,5 +1,4 @@
 const app = require("express")();
-const PORT = 8080;
 
 const rp = require("request-promise");
 const requestOptions = {
@@ -23,7 +22,7 @@ app.get("/coins", async (req, res) => {
   res.status(200).send(data);
 });
 
-app.listen(PORT, async () => {
+app.listen(process.env.PORT || 5000, async () => {
   console.log("server started");
 });
 
